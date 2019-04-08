@@ -1,0 +1,134 @@
+html,
+body {
+  height: 100%;
+  background: center no-repeat;
+  font-family: 'Open Sans', sans-serif;
+  color: darkslategrey;
+}
+
+.container {
+  display: flex;
+  flex-direction:column;
+  align-content: center;
+  justify-content: center;
+}
+
+.navigation {
+  list-style: none;
+  margin: 0;
+  font-size: large;
+  background: indianred;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: black;
+}
+
+.navigation a:hover {
+  background: #e0e0eb;
+}
+
+@media all and (max-width: 800px) {
+  .navigation {
+    justify-content: space-around;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .navigation {
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    padding: 0;
+}
+
+.navigation a {
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+  .navigation li:last-of-type a {
+    border-bottom: none;
+  }
+}
+
+.search-form {
+  padding-left: 650px;
+  text-transform: uppercase;
+}
+.search-form input {
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid lightgray;
+  border-radius: 2px;
+  width: 350px;
+}
+
+#input-text {
+  padding: 15px;
+  margin-right: 5px;
+}
+
+button {
+  padding:13px;
+  font-size:large;
+  margin: 10px;
+  margin-right: 0px;
+  background-color: lightslategrey;
+  border: 2px solid lightslategrey;
+  border-radius: 2px;
+}
+
+button:hover {
+  background-color: #e0e0eb;
+  border: 2px solid #e0e0eb;
+  cursor: pointer;
+}
+
+.gallery-wrap {
+  width: 100%;
+  justify-content: center;
+}
+
+.gallery-list{
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.gallery-item {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.button-like img{
+  align-items: end ;
+  width: 35px;
+  height: 35px;
+}
+
+.button-delete img {
+  width: 35px;
+  height: 35px;
+}
+
+.details-card {
+  margin: 0 auto;
+  padding-top: 55px;
+}
+
+.description-card {
+ text-transform: uppercase;
+ color: darkslategrey;
+}
