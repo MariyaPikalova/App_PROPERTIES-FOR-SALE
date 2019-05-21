@@ -1,15 +1,29 @@
+// @flow
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteCard } from '../actions/PageActions';
 import imageDelete from '../icons/delete.png';
 
-export class FavoritesHouses extends Component {
+import {type FavoritesCard} from '../interfaces';
 
-  handleDeleteCard = card => () => {
+type Props = {
+  index: number,
+  card: FavoritesCard,
+  deleteCard: Function,
+  favorites: Object,
+  handleDeleteCard: Function,
+  favoritesRender: Function,
+};
+
+
+export class FavoritesHouses extends Component<Props> {
+
+  handleDeleteCard = (card:FavoritesCard) => () => {
     this.props.deleteCard(card);
   };
 
-  favoritesRender = (card, index) => {
+  favoritesRender = (card:FavoritesCard, index:number) => {
     const {
       img_url,
       title,

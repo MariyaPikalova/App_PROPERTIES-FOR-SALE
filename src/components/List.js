@@ -1,3 +1,4 @@
+//@flow
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
@@ -14,15 +15,30 @@ import {
   favoritesStorage
 } from "../actions/PageActions";
 
+type Props = {
+  listCards: Object,
+  favorites: Array<Object>,
+  card: Object,
+  favoritesStorage: Object,
+  incrementMore: Function,
+  fetchCards: Function,
+  city: String,
+  addCard: Function,
+  listCount: Number,
+  getKeyLink: Function,
+  getCity: Function
+}
 
-class List extends Component {
+class List extends Component<Props> {
 
   componentDidMount() {
     const { favoritesStorage } = this.props;
-    const persistedState = JSON.parse(localStorage.getItem("favorites"));
-    if (persistedState) {
-      favoritesStorage(persistedState.favoritesList.favorites);
-    }
+
+      const persistedState = JSON.parse(localStorage.getItem("favorites") || '{}');
+      if (persistedState) {
+        favoritesStorage(persistedState.favoritesList.favorites);
+      }
+
   }
 
   listCardsRender = (card, index) => {
@@ -49,8 +65,7 @@ class List extends Component {
       </li>
     );
   };
-
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     const {  fetchCards, city } = this.props;
     event.preventDefault();
     fetchCards(8, city);
@@ -62,7 +77,7 @@ class List extends Component {
     fetchCards(listCount, city);
   };
 
-  handleChange = event => {
+  handleChange = (event: SyntheticInputEvent<HTMLInputElement>)=> {
     this.props.getCity(event.target.value);
   };
 
@@ -74,7 +89,7 @@ class List extends Component {
     this.props.getKeyLink(index);
   };
 
-  render() {
+  render(){
     return (
       <div className="search-field">
       <div className="search-form">

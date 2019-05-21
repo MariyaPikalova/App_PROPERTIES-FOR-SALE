@@ -1,12 +1,23 @@
+//@flow
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addCard } from '../actions/PageActions';
 import ButtonLike from '../components/ButtonLike';
+import {type FavoritesCard} from '../interfaces';
+const _ = require('lodash');
 
 import '../styles/index.css';
 
-class Details extends Component {
+type Props = {
+  addCard: Function,
+  listCards: FavoritesCard,
+  index: number,
+  favorites: Array<any>,
+  handleAddCard: Function,
+}
+
+class Details extends Component<Props> {
 
   handleAddCard = card => () => {
     this.props.addCard(card);

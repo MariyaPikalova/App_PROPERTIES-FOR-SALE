@@ -1,7 +1,16 @@
+//@flow
+
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-class ButtonMore extends Component {
+
+type Props = {
+  listCards: Object,
+  onClick: (event: SyntheticEvent<HTMLButtonElement>) => void
+}
+
+
+class ButtonMore extends Component<Props> {
   render() {
     if (!this.props.listCards.length) {
       return null;

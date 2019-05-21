@@ -1,4 +1,6 @@
-import _ from "lodash";
+//@flow
+
+const _ = require('lodash');
 
 import {
   ADD_TO_FAVORITES,
@@ -11,7 +13,14 @@ const initialState = {
   inFavorites: false
 };
 
-const favoritesList = (state = initialState, action) => {
+type State = {
+  favorites: Array<*>,
+  inFavorites: boolean
+}
+
+
+
+const favoritesList = (state: State = initialState, action: any) => {
   switch (action.type) {
     case ADD_TO_FAVORITES:
       if (state.favorites.some(fav => _.isEqual(fav, action.payload))) {

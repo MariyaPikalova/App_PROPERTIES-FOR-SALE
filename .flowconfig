@@ -1,0 +1,13 @@
+[ignore]
+
+[include]
+../src
+
+[libs]
+
+[lints]
+
+[options]
+module.name_mapper.extension='jpeg' -> '<PROJECT_ROOT>/*.js'
+
+[strict]

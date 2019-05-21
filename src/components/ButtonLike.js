@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import image from "../icons/images.jpeg";
 import '../styles/index.css';
+import image from "../icons/images.jpeg";
+
+
+
 
 export default class ButtonLike extends Component {
   render() {
